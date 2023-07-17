@@ -20,6 +20,13 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Tag(models.Model):
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
 
 class AudioFragments(models.Model):
     name = models.CharField(max_length=250)
@@ -33,6 +40,7 @@ class Item(Base):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    tag = models.ManyToManyField(Tag, null=True, blank=True)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='items')
     price = models.DecimalField(max_digits=10, decimal_places=2)
