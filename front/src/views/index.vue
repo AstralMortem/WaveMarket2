@@ -1,5 +1,5 @@
 <template>
-    <p class="text-xl">Navbar</p>
+    <p class="text-2xl">Hello world</p>
 </template>
 
 <script setup>
