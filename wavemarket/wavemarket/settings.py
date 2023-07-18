@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "corsheaders",
-    'django_filters'
+    'django_filters',
+    'djoser'
 
 ]
 
@@ -55,6 +56,15 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 15,
     'UPLOAD_FILES_USE_URL': True
+}
+
+DJOSER = {
+    'SERIALIZERS':{
+        'user': 'account.serializers.UserSerializer',
+        'current_user': 'account.serializers.UserSerializer',
+        'user_create': 'account.serializers.UserCreateSerializer',
+    }
+    
 }
 
 MIDDLEWARE = [
